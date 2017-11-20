@@ -1,1 +1,12 @@
+This program is run via the command prompt UI. The menu will allow the user to use a series of inputs, usually numerical. Only the options allowed will be accepted. To enter the administrator mode, log in with the username 'admin' and the password 'adminpass', both without the single quotes. The admin account will allow the user to add and delete accounts, while all other types of accounts will have basic access to the bank database. 
 
+To compile the file, use the command:
+
+gcc -c main.c
+gcc main.o -o main
+
+and run the file with the command
+
+./main
+
+The program will need a text file called "save.txt" to run. A sample save file has been included, but this file will contain the log in/balance/preferred currency types for all accounts. The file can be editted through the administrator account.
