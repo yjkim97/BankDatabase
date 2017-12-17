@@ -8,7 +8,7 @@
 //
 // INSTRUCTOR: Daniel Clark
 //
-// DATE: November 19, 2017
+// DATE: December 18, 2017
 //
 // FILE: main.c
 //
