@@ -24,6 +24,7 @@
 
 float totalAmount = 0;
 char usrName[50], pasWord[50];
+void changeBalance(int line, float changedBalance);
 
 /*****************************************************************
 //
@@ -79,7 +80,7 @@ void userMenu(char *userName){
     fclose(f);
 
     printf("Please choose an option.\n");
-    printf("1. See balance\n2. Make a deposit\n3. Withdraw an amount\n4. Exit\n=>> ");
+    printf("1. See balance\n2. Make a deposit\n3. Withdraw an amount\n4. Transfer money to another account\n5. Exit\n=>> ");
     scanf("%d", &option);
 
     if(option == 1) {
@@ -130,7 +131,8 @@ void userMenu(char *userName){
         fclose(f);
         if(strcmp(saveUsr, userAccount) == 0) {
           del_line += 3;
-          changeBalance(del_line, totalAmount);
+          float tempTotal = totalAmount;
+          changeBalance(del_line, tempTotal);
         }
         else {
           printf("Invalid username.\n\n");
@@ -143,6 +145,33 @@ void userMenu(char *userName){
         tempAmount = amount*1.18;
         printf("Deposited: %.2f Euros ($%.2f)\n", amount, tempAmount);
         totalAmount += tempAmount;
+        char saveUsr[80];
+        int del_line = 1;
+        FILE *f = fopen("save.txt", "r+");
+        if(f == NULL) {
+          printf("Error opening file!\n");
+          exit(1);
+        }
+        fscanf(f, "%[^\n]", saveUsr);
+        while(strcmp(saveUsr, userAccount) != 0) {
+          if(feof(f)){
+            break;
+          }
+          else {
+            del_line = del_line + 1;
+            fgets(trash, 20, f);
+            fscanf(f, "%[^\n]", saveUsr);
+          }
+        }
+        fclose(f);
+        if(strcmp(saveUsr, userAccount) == 0) {
+          del_line += 3;
+          float tempTotal = totalAmount;
+          changeBalance(del_line, tempTotal);
+        }
+        else {
+          printf("Invalid username.\n\n");
+        }
         printf("Total balance: $%.2f\n\n", totalAmount);
       }
 
@@ -151,6 +180,33 @@ void userMenu(char *userName){
         tempAmount = amount*1.33;
         printf("Deposited: %.2f UK Pounds ($%.2f)\n", amount, tempAmount);
         totalAmount += tempAmount;
+        char saveUsr[80];
+        int del_line = 1;
+        FILE *f = fopen("save.txt", "r+");
+        if(f == NULL) {
+          printf("Error opening file!\n");
+          exit(1);
+        }
+        fscanf(f, "%[^\n]", saveUsr);
+        while(strcmp(saveUsr, userAccount) != 0) {
+          if(feof(f)){
+            break;
+          }
+          else {
+            del_line = del_line + 1;
+            fgets(trash, 20, f);
+            fscanf(f, "%[^\n]", saveUsr);
+          }
+        }
+        fclose(f);
+        if(strcmp(saveUsr, userAccount) == 0) {
+          del_line += 3;
+          float tempTotal = totalAmount;
+          changeBalance(del_line, tempTotal);
+        }
+        else {
+          printf("Invalid username.\n\n");
+        }
         printf("Total balance: $%.2f\n\n", totalAmount);
       }
     }
@@ -183,6 +239,33 @@ void userMenu(char *userName){
         else {
           printf("Withdrew: %.2f US Dollars\n", amount);
           totalAmount -= amount;
+          char saveUsr[80];
+          int del_line = 1;
+          FILE *f = fopen("save.txt", "r+");
+          if(f == NULL) {
+            printf("Error opening file!\n");
+            exit(1);
+          }
+          fscanf(f, "%[^\n]", saveUsr);
+          while(strcmp(saveUsr, userAccount) != 0) {
+            if(feof(f)){
+              break;
+            }
+            else {
+              del_line = del_line + 1;
+              fgets(trash, 20, f);
+              fscanf(f, "%[^\n]", saveUsr);
+            }
+          }
+          fclose(f);
+          if(strcmp(saveUsr, userAccount) == 0) {
+            del_line += 3;
+            float tempTotal = totalAmount;
+            changeBalance(del_line, tempTotal);
+          }
+          else {
+            printf("Invalid username.\n\n");
+          }
         }
       }
       else if(currency == 2){
@@ -193,6 +276,33 @@ void userMenu(char *userName){
         else {
           printf("Withdrew: %.2f Euros ($%.2f)\n", amount, tempAmount);
           totalAmount -= tempAmount;
+          char saveUsr[80];
+          int del_line = 1;
+          FILE *f = fopen("save.txt", "r+");
+          if(f == NULL) {
+            printf("Error opening file!\n");
+            exit(1);
+          }
+          fscanf(f, "%[^\n]", saveUsr);
+          while(strcmp(saveUsr, userAccount) != 0) {
+            if(feof(f)){
+              break;
+            }
+            else {
+              del_line = del_line + 1;
+              fgets(trash, 20, f);
+              fscanf(f, "%[^\n]", saveUsr);
+            }
+          }
+          fclose(f);
+          if(strcmp(saveUsr, userAccount) == 0) {
+            del_line += 3;
+            float tempTotal = totalAmount;
+            changeBalance(del_line, tempTotal);
+          }
+          else {
+            printf("Invalid username.\n\n");
+          }
         }
       }
       else if(currency == 3){
@@ -203,12 +313,185 @@ void userMenu(char *userName){
         else {
           printf("Withdrew: %.2f UK Pounds ($%.2f)\n", amount, tempAmount);
           totalAmount -= tempAmount;
+          char saveUsr[80];
+          int del_line = 1;
+          FILE *f = fopen("save.txt", "r+");
+          if(f == NULL) {
+            printf("Error opening file!\n");
+            exit(1);
+          }
+          fscanf(f, "%[^\n]", saveUsr);
+          while(strcmp(saveUsr, userAccount) != 0) {
+            if(feof(f)){
+              break;
+            }
+            else {
+              del_line = del_line + 1;
+              fgets(trash, 20, f);
+              fscanf(f, "%[^\n]", saveUsr);
+            }
+          }
+          fclose(f);
+          if(strcmp(saveUsr, userAccount) == 0) {
+            del_line += 3;
+            float tempTotal = totalAmount;
+            changeBalance(del_line, tempTotal);
+          }
+          else {
+            printf("Invalid username.\n\n");
+          }
         }
       }
       printf("Total balance: $%.2f\n\n", totalAmount);
     }
 
     else if(option == 4) {
+      char currUser[80];
+      float transferAmount = 0;
+
+      char saveUsr[80];
+      char savePas[80];
+      char trash[80];
+      int prefCurr = 0;
+      int accountTotal = 0;
+      while(1) {
+        FILE *f = fopen("save.txt", "r+");
+        if(f == NULL) {
+          printf("Error opening file!\n");
+          exit(1);
+        }
+        char tempUsr[50];
+        printf("Name of account to transfer to: ");
+        scanf("%s", tempUsr);
+        fgets(trash, 20, stdin);
+        fscanf(f, "%[^\n]", saveUsr);
+        fgets(trash, 20, f);
+        fscanf(f, "%[^\n]", savePas);
+        fgets(trash, 20, f);
+        fscanf(f, "%[^\n]", &prefCurr);
+        fgets(trash, 20, f);
+        fscanf(f, "%[^\n]", &accountTotal);
+        while(strcmp(saveUsr, tempUsr) != 0) {
+          if(feof(f)){
+            break;
+          }
+          else {
+            fgets(trash, 20, f);
+            fscanf(f, "%[^\n]", saveUsr);
+            fgets(trash, 20, f);
+            fscanf(f, "%[^\n]", savePas);
+            fgets(trash, 20, f);
+            fscanf(f, "%[^\n]", &prefCurr);
+            fgets(trash, 20, f);
+            fscanf(f, "%[^\n]", &accountTotal);
+          }
+        }
+
+        if(strcmp(saveUsr, tempUsr) == 0) {
+          printf("Input the value you want to transfer in dollars. Example: 50.25\n=>> ");
+          scanf("%f", &transferAmount);
+          if(transferAmount > totalAmount) {
+            printf("Insufficient funds\n\n");
+            break;
+          }
+          printf("Transfering $%.2f to user %s\n\n", transferAmount, saveUsr);
+          totalAmount -= transferAmount;
+
+          //changing balance of current user
+          rewind(f);
+          char anotherTempVal[80];
+          int del_line = 1;
+
+          if(f == NULL) {
+            printf("Error opening file!\n");
+            exit(1);
+          }
+          fscanf(f, "%[^\n]", anotherTempVal);
+          while(strcmp(anotherTempVal, userAccount) != 0) {
+            if(feof(f)){
+              break;
+            }
+            else {
+              del_line = del_line + 1;
+              fgets(trash, 20, f);
+              fscanf(f, "%[^\n]", anotherTempVal);
+            }
+          }
+          fclose(f);
+          if(strcmp(anotherTempVal, userAccount) == 0) {
+            del_line += 3;
+            float tempTotal = totalAmount;
+            changeBalance(del_line, tempTotal);
+          }
+
+          //Finding the total amount of transfered User
+          char trash[80];
+          char userAccount[80];
+          char tempValue[80];
+          FILE *f = fopen("save.txt", "r+");
+          if(f == NULL) {
+            printf("Error opening file!\n");
+            exit(1);
+          }
+          char tempUsr[50];
+          fscanf(f, "%[^\n]", tempValue);
+          while(strcmp(tempValue, saveUsr) != 0) {
+            if(feof(f)){
+              break;
+            }
+            else {
+              fgets(trash, 20, f);
+              fscanf(f, "%[^\n]", tempValue);
+            }
+          }
+          if(strcmp(tempValue, saveUsr) == 0) {
+            fgets(trash, 20, f);
+            fscanf(f, "%[^\n]", tempValue);
+            fgets(trash, 20, f);
+            fscanf(f, "%[^\n]", tempValue);
+            fgets(trash, 20, f);
+            fscanf(f, "%[^\n]", tempValue);
+            totalAmount = atof(tempValue);
+          }
+
+          totalAmount += transferAmount;
+
+
+          //changing total for transfered user
+          rewind(f);
+          char anotherTempVal2[80];
+          del_line = 1;
+
+          if(f == NULL) {
+            printf("Error opening file!\n");
+            exit(1);
+          }
+          fscanf(f, "%[^\n]", anotherTempVal2);
+          while(strcmp(anotherTempVal2, saveUsr) != 0) {
+            if(feof(f)){
+              break;
+            }
+            else {
+              del_line = del_line + 1;
+              fgets(trash, 20, f);
+              fscanf(f, "%[^\n]", anotherTempVal2);
+            }
+          }
+          fclose(f);
+          if(strcmp(anotherTempVal2, saveUsr) == 0) {
+            del_line += 3;
+            float tempTotal = totalAmount;
+            changeBalance(del_line, tempTotal);
+          }
+
+        }
+        else {
+          printf("User not found!\n\n");
+        }
+        break;
+      }
+    }
+    else if(option == 5) {
       printf("Logging out.\n\n");
       break;
     }
@@ -456,7 +739,6 @@ void delUser(int line) {
     fclose(fp2);
     remove(filename);
     rename("copy.c", filename);
-    fclose(fp1);
 }
 
 /*****************************************************************
@@ -508,7 +790,6 @@ void changeBalance(int line, float changedBalance) {
     fclose(fp2);
     remove(filename);
     rename("copy.c", filename);
-    fclose(fp1);
 }
 
 /*****************************************************************
@@ -524,6 +805,7 @@ void changeBalance(int line, float changedBalance) {
 // Return values: None
 //
 //****************************************************************/
+
 int main() {
   printf("\n\n _______          ______         __    __        __    __ \n|       \\        /      \\       |  \\  |  \\      |  \\  /  \\\n| $$$$$$$\\      |  $$$$$$\\      | $$\\ | $$      | $$ /  $$\n| $$  | $$      | $$__| $$      | $$$\\| $$      | $$/  $$\n| $$  | $$      | $$    $$      | $$$$\\ $$      | $$  $$\n| $$  | $$      | $$$$$$$$      | $$\\$$ $$      | $$$$$\\\n| $$__/ $$      | $$  | $$      | $$ \\$$$$      | $$ \\$$\\\n| $$    $$      | $$  | $$      | $$  \\$$$      | $$  \\$$\\\n \\$$$$$$$        \\$$   \\$$       \\$$   \\$$       \\$$   \\$$\n\n");
   printf(" _______          ______         __    __        __    __\n|       \\        /      \\       |  \\  |  \\      |  \\  /  \\\n| $$$$$$$\\      |  $$$$$$\\      | $$\\ | $$      | $$ /  $$\n| $$__/ $$      | $$__| $$      | $$$\\| $$      | $$/  $$\n| $$    $$      | $$    $$      | $$$$\\ $$      | $$  $$\n| $$$$$$$\\      | $$$$$$$$      | $$\\$$ $$      | $$$$$\\\n| $$__/ $$      | $$  | $$      | $$ \\$$$$      | $$ \\$$\\\n| $$    $$      | $$  | $$      | $$  \\$$$      | $$  \\$$\\\n \\$$$$$$$        \\$$   \\$$       \\$$   \\$$       \\$$   \\$$ \n\n");
