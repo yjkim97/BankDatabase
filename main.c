@@ -21,8 +21,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <float.h>
-#include "record.h"
-#include "functions.h"
 
 float totalAmount = 0;
 char usrName[50], pasWord[50];
