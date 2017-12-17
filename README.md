@@ -1,7 +1,8 @@
 # BankDatabase
 
 Sample run of the code:
-'''
+
+```
 _______          ______         __    __        __    __
 |       \        /      \       |  \  |  \      |  \  /  \
 | $$$$$$$\      |  $$$$$$\      | $$\ | $$      | $$ /  $$
@@ -343,5 +344,4 @@ Welcome to the Dank Bank Database. Please choose an option.
 2. Make a conversion
 3. Exit the program
 =>> 3
-
-'''
+```
