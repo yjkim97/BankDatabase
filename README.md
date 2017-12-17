@@ -1,5 +1,70 @@
-# BankDatabase
+# The Dank Bank Database
 
+The Dank Bank Database allows users to create a bank account, deposit/withdraw funds, and transfer funds throughout users.
+
+## Table of Contents
+
+* [Installation and running the application](#install)
+* [User Guide](#user)
+* [Sample Run](#test)
+
+## Installation and running the application <a name="install"></a>
+
+First, clone or download a copy of the [Dank Bank Database](https://github.com/yjkim97/BankDatabase).
+
+Second, cd to the appropriate folder and run the following lines of code:
+
+```
+gcc -c main.c
+gcc main.o -o DankBank
+./DankBank
+```
+
+## User Guide <a name="user"></a>
+
+The Dank Bank Database utilizes the file "save.txt" as a source to store database information. For the best results, ensure that this file is empty.
+
+Once starting the application, the menu will prompt the user to choose between 3 options. 
+
+```
+_______          ______         __    __        __    __
+|       \        /      \       |  \  |  \      |  \  /  \
+| $$$$$$$\      |  $$$$$$\      | $$\ | $$      | $$ /  $$
+| $$  | $$      | $$__| $$      | $$$\| $$      | $$/  $$
+| $$  | $$      | $$    $$      | $$$$\ $$      | $$  $$
+| $$  | $$      | $$$$$$$$      | $$\$$ $$      | $$$$$\
+| $$__/ $$      | $$  | $$      | $$ \$$$$      | $$ \$$\
+| $$    $$      | $$  | $$      | $$  \$$$      | $$  \$$\
+\$$$$$$$        \$$   \$$       \$$   \$$       \$$   \$$
+
+_______          ______         __    __        __    __
+|       \        /      \       |  \  |  \      |  \  /  \
+| $$$$$$$\      |  $$$$$$\      | $$\ | $$      | $$ /  $$
+| $$__/ $$      | $$__| $$      | $$$\| $$      | $$/  $$
+| $$    $$      | $$    $$      | $$$$\ $$      | $$  $$
+| $$$$$$$\      | $$$$$$$$      | $$\$$ $$      | $$$$$\
+| $$__/ $$      | $$  | $$      | $$ \$$$$      | $$ \$$\
+| $$    $$      | $$  | $$      | $$  \$$$      | $$  \$$\
+\$$$$$$$        \$$   \$$       \$$   \$$       \$$   \$$
+
+Welcome to the Dank Bank Database. Please choose an option.
+1. Login to an existing account
+2. Make a conversion
+3. Exit the program
+=>>
+```
+
+Option 1 will allow the user to log in to any existing accounts. Enter the number "1" and log in using the following credentials:
+
+**Username:** admin
+
+**Password:** adminpass
+
+This is the administrative account. This account has access to creating and deleting accounts.
+
+Once you have created a few of your own accounts, head back to the main menu and log in with your newly made username and passwords to get started.
+
+## Sample Run <a name="test"></a>
 Sample run of the code:
 
 ```
